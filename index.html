@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculatrice JS</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <h1>Calculatrice JS</h1>
+  <div class="wrapper-calculette">
+    <div class="calculette">
+      <div id="screen"></div>
+      <div class="buttons">
+        <button class="operator" onclick="updateScreen(this);">+</button>
+        <button class="operator">-</button>
+        <button class="operator">*</button>
+        <button class="operator">/</button>
+        <button class="number" onclick="clickNumber(this);">1</button>
+        <button class="number" onclick="clickNumber(this);">2</button>
+        <button class="number" onclick="clickNumber(this);">3</button>
+        <button class="number" onclick="clickNumber(this);">4</button>
+        <button class="number" onclick="clickNumber(this);">5</button>
+        <button class="number" onclick="clickNumber(this);">6</button>
+        <button class="number" onclick="clickNumber(this);">7</button>
+        <button class="number" onclick="clickNumber(this);">8</button>
+        <button class="number" onclick="clickNumber(this);">9</button>
+        <button class="number" onclick="clickNumber(this);">0</button>
+        <button class="operator" onclick="clearScreen();">C</button>
+        <button class="operator" onclick="updateResult();">=</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
