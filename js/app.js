@@ -8,8 +8,7 @@ updateScreen(result);
 
 // Action for click on a number
 function clickNumber(number) {
-  console.log('Click on ' + number);
-
+  
   // Add number to result (as string)
   result = result + number;
   updateScreen(result);
@@ -17,10 +16,8 @@ function clickNumber(number) {
 
 // Action for click on an operator
 function clickOperator(operator) {
-  console.log('Click on ' + operator);
-
+  
   // Caculated last operation
-  console.log('Calculate last operation');
   updateResult();
 
   // Save the result in last_value and we clear the screen
@@ -34,8 +31,7 @@ function clickOperator(operator) {
 
 // Clear the result screen
 function clearScreen() {
-  console.log('Variables result & last_value set to 0');
-  
+
   // Reset all values
   resetValues();
   
@@ -45,7 +41,6 @@ function clearScreen() {
 
 // Display result in screen results
 function updateResult() {
-  console.log('Result updated');
 
   // Need to calculate ?
   if(last_value != null && current_operator != null) {
@@ -81,7 +76,6 @@ function updateResult() {
 
 // Display result in screen results
 function updateScreen() {
-  console.log('Screen result updated');
 
   // Force result to be an float (to remove first 0)
   result = parseFloat(result);
@@ -120,12 +114,4 @@ function resetValues() {
   result = 0;
   last_value = null;
   current_operator = null;
-}
-
- 
-// Helper: display current values for debug
-function debugCalculette() {
-  console.log('Current result is : ' + result);
-  console.log('Current last_value is : ' + last_value);
-  console.log('Current operation is : ' + current_operator);
 }
