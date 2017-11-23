@@ -107,6 +107,12 @@ function keyPressed(e) {
   else if(e.keyCode == 13) {
     updateResult();
   }
+
+  // Key is escape
+  else if(e.keyCode == 27) {
+    clearScreen();
+  }
+  
 }
  
 // Reset current values
