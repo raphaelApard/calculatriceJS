@@ -11,10 +11,10 @@
     <div class="calculette">
       <div id="screen"></div>
       <div class="buttons">
-        <button class="operator" onclick="updateScreen(this);">+</button>
-        <button class="operator">-</button>
-        <button class="operator">*</button>
-        <button class="operator">/</button>
+        <button class="operator" onclick="clickOperator(this);">+</button>
+        <button class="operator" onclick="clickOperator(this);">-</button>
+        <button class="operator" onclick="clickOperator(this);">*</button>
+        <button class="operator" onclick="clickOperator(this);">/</button>
         <button class="number" onclick="clickNumber(this);">1</button>
         <button class="number" onclick="clickNumber(this);">2</button>
         <button class="number" onclick="clickNumber(this);">3</button>
@@ -26,7 +26,7 @@
         <button class="number" onclick="clickNumber(this);">9</button>
         <button class="number" onclick="clickNumber(this);">0</button>
         <button class="operator" onclick="clearScreen();">C</button>
-        <button class="operator" onclick="updateResult();">=</button>
+        <button class="operator" onclick="updateResults();">=</button>
       </div>
     </div>
   </div>
