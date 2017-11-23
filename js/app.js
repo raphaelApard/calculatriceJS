@@ -4,26 +4,24 @@ var last_value = null;
 var current_operator = null;
 
 // Init result screen
-updateScreen();
+updateScreen(result);
 
 // Action for click on a number
-function clickNumber(button) {
-  var number = button.innerHTML;
+function clickNumber(number) {
   console.log('Click on ' + number);
 
-  // Add number to result
+  // Add number to result (as string)
   result = result + number;
-  updateScreen();
+  updateScreen(result);
 }
 
 // Action for click on an operator
-function clickOperator(button) {
-  var operator = button.innerHTML;
+function clickOperator(operator) {
   console.log('Click on ' + operator);
 
   // Caculated last operation
   console.log('Calculate last operation');
-  updateResults();
+  updateResult();
 
   // Save the result in last_value and we clear the screen
   last_value = result;
@@ -39,16 +37,14 @@ function clearScreen() {
   console.log('Variables result & last_value set to 0');
   
   // Reset all values
-  result = 0;
-  last_value = null;
-  current_operator = null;
+  resetValues();
   
   // Update screen
   updateScreen();
 }
 
 // Display result in screen results
-function updateResults() {
+function updateResult() {
   console.log('Result updated');
 
   // Need to calculate ?
@@ -66,14 +62,21 @@ function updateResults() {
           result = last_value * result;
           break;
       case "/":
-          result = last_value / result;      
+          if(!result) {
+            document.getElementById('screen').innerHTML = 'Une division par 0 ? Non mais ça va pas ou quoi ?';
+            resetValues();
+            return;
+          }
+      
+          result = last_value / result;
           break;
     }
 
     last_value = null;
+    current_operator = null;
   }
 
-  updateScreen();  
+  updateScreen(result);  
 }
 
 // Display result in screen results
@@ -87,6 +90,33 @@ function updateScreen() {
   document.getElementById('screen').innerHTML = result;
 }
 
+// Action for key down
+function keyPressed(e) {
+
+  // Key is operator
+  if(e.key == '+' || e.key == '-' || e.key == '*' || e.key == '/') {
+    clickOperator(e.key);
+  }
+  
+  // Key is number
+  else if((e.keyCode >= 48 ) && (e.keyCode <= 57)) {
+    clickNumber(e.key);
+  }
+
+  // Key is equal
+  else if(e.keyCode == 13) {
+    updateResult();
+  }
+}
+ 
+// Reset current values
+function resetValues() {
+  result = 0;
+  last_value = null;
+  current_operator = null;
+}
+
+ 
 // Helper: display current values for debug
 function debugCalculette() {
   console.log('Current result is : ' + result);
